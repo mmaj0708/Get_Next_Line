@@ -6,7 +6,7 @@
 /*   By: mmaj <mmaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:26:07 by mmaj              #+#    #+#             */
-/*   Updated: 2020/02/04 19:04:19 by mmaj             ###   ########.fr       */
+/*   Updated: 2020/02/04 19:16:23 by mmaj             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,32 +95,3 @@ int		get_next_line(int fd, char **line)
 	return (ret);
 }
 
-// int		get_next_line(int fd, char **line)
-// {
-// 	static	char	*tmp;
-// 	char			*buff;
-// 	char			*temp;
-// 	int				ret;
-
-// 	ret = SUCCESS;
-// 	if (line == NULL || BUFFER_SIZE <= 0 || fd < 0 || (!tmp && (!(tmp = malloc(1))
-// 		|| (*tmp = 0))) || !(buff = malloc(BUFFER_SIZE + 1)))
-// 		return (FAILURE);
-// 	while (ft_strchr(tmp, '\n') < 0 && (ret = read(fd, buff, BUFFER_SIZE)) > 0)
-// 	{
-// 		buff[ret] = 0;
-// 		if (!(tmp = ft_strjoin(tmp, buff)))
-// 			return (FAILURE);
-// 	}
-// 	free(buff);
-// 	buff = NULL;
-// 	if (ret == FAILURE)
-// 		return (FAILURE);
-// 	*line = ft_substr(tmp, 0, ft_strchr(tmp, '\n'));
-// 	temp = tmp;
-// 	ret = ft_verif(tmp);
-// 	tmp = ft_substr(tmp, ft_strchr(tmp, '\n') + 1, ft_strchr(tmp, '\0'));
-// 	free(temp);
-// 	temp = NULL;
-// 	return (ret);
-// }
