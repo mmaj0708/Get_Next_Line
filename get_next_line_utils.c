@@ -6,7 +6,7 @@
 /*   By: mmaj <mmaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:26:34 by mmaj              #+#    #+#             */
-/*   Updated: 2020/02/04 18:47:55 by mmaj             ###   ########.fr       */
+/*   Updated: 2020/02/05 22:39:28 by mmaj             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,35 +90,6 @@ int		ft_strchr(char *s, char c)
 	return (FAILURE);
 }
 
-// char	*ft_substr(char *s1, int start, int len)
-// {
-// 	int		i;
-// 	char	*new;
-
-// 	i = 0;
-// 	if (!s1)
-// 		return (NULL);
-// 	len = len <= (ft_strlen(s1, 0) - start) ? (len + 1) : ft_strlen(s1, 0) - start + 1;
-// 	if (start > (ft_strlen(s1, 0) - 1))
-// 	{
-// 		new = ft_calloc(1, 1);
-// //		free(s1);
-// //		s1 = NULL;
-// 		return (new);
-// 	}
-// 	if (!(new = (char *)ft_calloc(len, 1)))
-// 		return (NULL);
-// 	while (i < len && s1[start + i])
-// 	{
-// 		new[i] = s1[start + i];
-// 		i++;
-// 	}
-// 	new[i] = '\0';
-// //	free(s1);
-// //	s1 = NULL;
-// 	return (new);
-// }
-
 char	*ft_substr(char *s, int start, int len)
 {
 	int		i;
@@ -139,5 +110,7 @@ char	*ft_substr(char *s, int start, int len)
 		i++;
 	}
 	new[i] = '\0';
+	//free (s);
+	//s = NULL;
 	return (new);
 }
