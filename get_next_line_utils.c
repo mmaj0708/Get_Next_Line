@@ -6,27 +6,11 @@
 /*   By: mmaj <mmaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:26:34 by mmaj              #+#    #+#             */
-/*   Updated: 2020/02/05 22:39:28 by mmaj             ###   ########.fr       */
+/*   Updated: 2020/02/10 16:24:39 by mmaj             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*mem;
-	size_t	i;
-
-	i = 0;
-	if (!(mem = malloc(size * count)))
-		return (NULL);
-	while (i < size * count)
-	{
-		mem[i] = '\0';
-		i++;
-	}
-	return (mem);
-}
 
 int		ft_strlen(char *s, char c)
 {
@@ -110,7 +94,5 @@ char	*ft_substr(char *s, int start, int len)
 		i++;
 	}
 	new[i] = '\0';
-	//free (s);
-	//s = NULL;
 	return (new);
 }

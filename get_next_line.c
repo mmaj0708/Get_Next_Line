@@ -6,12 +6,28 @@
 /*   By: mmaj <mmaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:26:07 by mmaj              #+#    #+#             */
-/*   Updated: 2020/02/05 22:44:25 by mmaj             ###   ########.fr       */
+/*   Updated: 2020/02/10 16:29:58 by mmaj             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <fcntl.h>
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*mem;
+	size_t	i;
+
+	i = 0;
+	if (!(mem = malloc(size * count)))
+		return (NULL);
+	while (i < size * count)
+	{
+		mem[i] = '\0';
+		i++;
+	}
+	return (mem);
+}
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -37,8 +53,6 @@ char	*ft_strmove(char *s)
 	int		j;
 
 	j = 0;
-	// if (s == NULL)
-	// 	return (NULL);
 	i = ft_strlen(s, '\n');
 	if (!(res = malloc((ft_strlen(s, '\0') - i) + 1)))
 		return (NULL);
@@ -71,14 +85,13 @@ int		get_next_line(int fd, char **line)
 {
 	static char		*save;
 	char			*buff;
-	char			*temp;
 	int				ret;
 
-	ret = SUCCESS;
-	temp = NULL;
-	if (line == NULL || BUFFER_SIZE < 1	|| fd < 0 
+	ret = 0;
+	if (line == NULL || (BUFFER_SIZE < 1) || fd < 0
 		|| (!save && (!(save = malloc(1))
-		|| (*save = 0))) || !(buff = malloc(BUFFER_SIZE + 1)))
+		|| (*save = 0)))
+		|| !(buff = malloc(BUFFER_SIZE + 1)))
 		return (FAILURE);
 	while (ft_strchr(save, '\n') == FAILURE
 	&& (ret = read(fd, buff, BUFFER_SIZE)) > 0)
@@ -86,15 +99,11 @@ int		get_next_line(int fd, char **line)
 		buff[ret] = '\0';
 		if (!(save = ft_strjoin(save, buff)))
 			return (-1);
-	//	temp = save;
 	}
 	free(buff);
 	buff = NULL;
-	ret = ft_verif(save, ret);
-	if (ret == SUCCESS)
-	{
+	if ((ret = ft_verif(save, ret)) == SUCCESS)
 		*line = ft_substr(save, 0, ft_strlen(save, '\0'));
-	}
 	else
 		*line = ft_substr(save, 0, ft_strchr(save, '\n'));
 	save = ft_strmove(save);

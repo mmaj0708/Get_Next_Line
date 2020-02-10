@@ -6,7 +6,7 @@
 /*   By: mmaj <mmaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 19:26:53 by mmaj              #+#    #+#             */
-/*   Updated: 2020/02/04 19:04:00 by mmaj             ###   ########.fr       */
+/*   Updated: 2020/02/10 16:04:46 by mmaj             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define FALSE		0
 # define SUCCESS	0
 # define FAILURE	-1
-
 
 int				get_next_line(int fd, char **line);
 int				ft_strlen(char *s, char c);
